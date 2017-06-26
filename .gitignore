@@ -1,0 +1,5 @@
+figures/
+King_1994/King_1994.pdf
+*/*.log
+*/*.aux
+*/*.synctex.gz
