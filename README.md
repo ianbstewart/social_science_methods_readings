@@ -1,14 +1,16 @@
 # Social science methods readings
 These are some notes on reading that I've been doing recently that relate to research methods in social science. Although they don't provide insight specifically on language-related phenomena, the readings provide a more complete picture of how to do successful quantitative social science research.
 
-- King/King_notes.pdf
+- King_1994/King_notes.pdf
+
 King, G., Keohane, R. O., & Verba, S. (1994). Designing social inquiry: Scientific inference in qualitative research. Princeton University Press. (PDF [here](https://sites.duke.edu/niou/files/2014/06/king94book.pdf))
 
 The process of designing social science studies often seems straightforward: find an interesting social phenomenon that relates to a theory of interest, document the phenomenon, and perform inference between an independent and dependent variable to test a causal relationship. This process is far from foolproof and requires careful understanding of the assumptions made when collecting data or making causal inferences. King, Keohane and Verba make an excellent case for designing meaningful social science studies that minimize error and maximize inferential power, focusing primarily on observational political science studies. While this is not a "cookbook" for social science, it provides a wealth of helpful hints about common researcher mistakes, such as including irrelevant explanatory variables, and provides statistical justification for many of the claims about inferential logic, such as the statistical definition of bias and variance. Despite the title, it also leans more toward quantitative work in the sense of defining dependent and independent variables that can be clearly measured and replicated. Given the recent popularity of computational social science, we as social scientists should not try to reinvent the wheel but should instead rely on insights from veterans such as King, Keohane and Verba when it comes to making meaningful claims about human behavior. 
 
 (There's also a few nerdy jokes that snuck into the text. Keep your eyes peeled!)
 
-- Salganik/Salganik_notes.pdf
+- Salganik_2017/Salganik_notes.pdf
+
 Salganik, M. (2017) Bit by bit: social research in the digital age. Forthcoming. (open-access version [here](http://www.bitbybitbook.com/))
 
 The digital era has provided a wealth of opportunity to social scientists in the form of a massively increased variety and scale of data available, as well as the opportunity to run exciting new types of experiments. Salganik argues that digital social science works best when researchers combine traditional theories and methods from social scientists with computationally powerful methods from "data science" (an amalgamation of computer science and statistics). For example, a traditional survey-based study of a subpopulation can be augmented with machine learning that predicts the survey results from the entire population, giving a more complete view of the population traits being studied. In his book, Salganik provides an overview of present and future research methods in computational social science, which include observing social behavior through "big data," rethinking and augmenting traditional surveys, running large-scale experiments, supporting massive voluntary collaboration, and making ethical choices. Salganik supports his straightforward claims (e.g., a good quality of "big data" is how big it is) with a wealth of studies conducted in the past decade that highlight both the opportunities and pitfalls of digital era social science. Similarly to King, Keohane and Verba (1994), this is not a cookbook but a high-level overview of what makes a successful social science research project.
