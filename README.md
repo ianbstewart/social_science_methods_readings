@@ -1,5 +1,5 @@
-# Social science readings
-These are some notes on reading that I've been doing recently that relate to research design in social science. Although they don't provide insight specifically on language-related phenomena, the readings provide a more complete picture of how to do successful quantitative social science research.
+# Social science methods readings
+These are some notes on reading that I've been doing recently that relate to research methods in social science. Although they don't provide insight specifically on language-related phenomena, the readings provide a more complete picture of how to do successful quantitative social science research.
 
 - King/King_notes.pdf
 King, G., Keohane, R. O., & Verba, S. (1994). Designing social inquiry: Scientific inference in qualitative research. Princeton University Press. (PDF [here](https://sites.duke.edu/niou/files/2014/06/king94book.pdf))
