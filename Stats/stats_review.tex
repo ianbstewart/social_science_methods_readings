@@ -368,9 +368,9 @@ $\sigma $ & $\sqrt{\frac{2v_{2}^{2}(v_{1} + v_{2} - 2)}{v_{1}(v_{2}-4)(v_{2}-2)^
 \paragraph{Sample problem}
 
 \textbf{4.47}
-(a) For chi-squared variables $V_{1}$ with 10 degrees of freedom and $V_{2}$ with 15 degrees of freedom, compute the 95^{th} percentile of their expected ratio. 
+(a) For chi-squared variables $V_{1}$ with 10 degrees of freedom and $V_{2}$ with 15 degrees of freedom, compute the $95^{th}$ percentile of their expected ratio. 
 
-(d) For chi-squared variables $V_{1}$ with 15 degrees of freedom and $V_{2}$ with 9 degrees of freedom, compute the 1^{st} percentile of their expected ratio.
+(d) For chi-squared variables $V_{1}$ with 15 degrees of freedom and $V_{2}$ with 9 degrees of freedom, compute the $1^{st}$ percentile of their expected ratio.
 
 (a) $\frac{V_{1} / 10}{V_{2} / 15} = F_{10, 15}, F_{0.95, 10, 15} = 2.54$
 
@@ -381,5 +381,44 @@ $\sigma $ & $\sqrt{\frac{2v_{2}^{2}(v_{1} + v_{2} - 2)}{v_{1}(v_{2}-4)(v_{2}-2)^
 The F distribution is used in the analysis of variance when a sample's standard deviation is unknown, such as Prabhakaran, Reid and Rambow (2014) which used an ANOVA test to compare the group means of different predictive features to assess which features significantly differentiated different subgroups.
 
 \section{Sampling}
+
+\begin{itemize}
+\item To perform statistical inference on a population, it is often necessary to draw a representative \emph{sample}, which may be drawn with or without replacement.
+\item Sample statistics are estimates of the population's underlying distribution. Formally, for a sample of random variables $\{X_{1} ... X_{n}\}$, a statistic $g(X_{1} ... X_{n})$ approximates a parameter from the population distribution. 
+\item We often need to estimate the distribution of sample statistics in order to draw conclusions about a population. For instance, computing the variance of the sample mean tells us how spread out the estimation of the population mean is.
+\item \textbf{Estimating normal distribution parameters}
+\item For sample mean $\bar{X}=\frac{\sum_{i=1}^{n}X_{i}}{n}$, the expected value is $\mu_{\bar{X}}=\mu$. The variance of the sampling distribution is $\sigma_{\bar{X}} = \frac{\sigma^{2}}{n}$ with replacement, and $\sigma_{\bar{X}} = \frac{\sigma^{2}}{n}\frac{N-n}{N-1}$. 
+\item For sample variance $S^{2} = \frac{\sum_{i=1}^{n}(X_{i}-\bar{X})^{2}}{n}$, the expected value with replacement is $\mu_{S^{2}} = \frac{n-1}{n}\sigma^{2}$, which indicates that $S^{2}$ is a biased estimator because its expected value is not equal to the population parameter (as compared to $\hat{S}^{2} = \frac{\sum_{i=1}^{n}(X_{i}-\bar{X})^{2}}{n-1}$). The expected value without replacement is $\mu_{S^{2}} = (\frac{N}{N-1})(\frac{n-1}{n})\sigma^{2}$.
+\item We already know that the standardized variable $Z=\frac{\bar{X}-\mu}{\sigma / \sqrt{n}}$ is normally distributed. But if we do not know population variance $\sigma^{2}$, we can estimate using statistic $T = \frac{\bar{X} - \mu}{\hat{S} / \sqrt{n}} = \frac{\bar{X} - \mu}{S / \sqrt{n-1}}$, which follows student's t distribution with $n-1$ degrees of freedom.
+\item For two independent populations, we can estimate the expected value and variance of the difference between population samples' sample means $\bar{X_{1}}, \bar{X_{2}}$ are $\mu_{\bar{X}_{1} - \bar{X}_{2}} = \mu_{1} - \mu_{2}$ and $\sigma_{\bar{X}_{1} - \bar{X}_{2}} = \sqrt{\sigma^{2}_{\bar{X}_{1}} + \sigma^{2}_{\bar{X}_{2}}} = \sqrt{\frac{\sigma_{1}^{2}}{n_{1}} + \frac{\sigma_{2}^{2}}{n_{2}}}$. The expected value and variance of the difference between population samples' sample standard deviations $S_{1}, S_{2}$ are $\mu_{S_{1} - S_{2}} = \mu_{S_{1}} - \mu_{S_{2}}$ and $\sigma_{S_{1} - S_{2}} = \sqrt{\sigma^{2}_{S_{1}} - \sigma^{2}_{S_{2}}}$. The standardized variable is normally distributed if $n_{1}$ and $n_{2}$ are over 30 and can be computed as $Z=\frac{(\bar{X}_{1} - \bar{X}_{2}) - (\mu_{1} - \mu_{2})}{\sqrt{\sigma_{1}^{2} / n_{1} + \sigma_{2}^{2} / n^{2}}}$.
+\item For two independent populations, we can estimate the ratio of the population variances $\frac{S_{1}^{2}}{S_{2}^{2}}$ with test statistic $F=\frac{n_{1}S_{1}^{2}/(n_{1}-1)\sigma_{1}^{2}}{n_{2}S_{2}^{2}/(n_{2}-1)\sigma_{2}^{2}} = \frac{\hat{S}_{1}^{2} / \sigma_{1}^{2}}{\hat{S}_{2}^{2} / \sigma_{2} / \sigma_{2}^{2}} \sim F_{n_{1}-1, n_{2}-1}$.
+\item \textbf{Estimating binomial distribution parameters}
+\item For sample proportion of success $P$, we can estimate the expected value and variance as $\mu_{P} = p$ and $\sigma_{P} = \sqrt{\frac{pq}{n}} = \sqrt{\frac{p(1-p)}{n}}$, derived from population parameter $p$ and identities $\mu=p, \sigma=\sqrt{p(1-p)}$.
+\item For two independent populations, we can estimate the expected value and variance of the difference between populations' proportions of success $P_{1}, P_{2}$ as $\mu_{P_{1}-P_{2}} = \mu_{P_{1}} + \mu_{P_{2}} = p_{1} - p_{2}$ and $\sigma_{P_{1}-P_{2}} = \sqrt{\sigma^{2}_{P_{1}} + \sigma^{2}_{P_{2}}} = \sqrt{ \frac{p_{1}q_{1}}{n_{1}} + \frac{p_{2}q_{2}}{n_{2}} }$.
+\end{itemize}
+
+\paragraph{Sample problems} ~\\
+
+\textbf{5.54}
+
+A population $X$ has mean weekly income of \$800 with standard deviation \$60. What is the probability that a random sample of 16 people has a mean daily income (a) between \$790 and \$810? (c) greater than \$820?
+
+(a) $P(790 \leq \bar{X} \leq 810) = P(\frac{790 - 800}{60 / \sqrt{16}} \leq Z \leq \frac{810 - 800}{60 / \sqrt{16}}) = P(-\frac{2}{3} \leq Z \leq \frac{2}{3}) = P(Z \leq \frac{2}{3}) - P(Z \leq -\frac{2}{3}) = 0.4972$
+
+(c) $P(\bar{X} \geq 820) = P(Z \geq \frac{820 - 800}{60 / \sqrt{16}}) = P(Z \geq \frac{4}{3}) = 1 - P(Z \leq \frac{4}{3}) = 0.0912$
+
+\textb{5.60}
+
+A corpus contains 80 tokens, 60\% nouns and 40\% verbs. Out of 50 samples of 20 tokens (with replacement), how many samples will have (a) equal numbers of nouns and verbs? (c) 8 nouns and 12 verbs?
+
+Let's call noun probability $p=0.60$ and verb probability $q=0.40$.
+
+%$\mu_{P} = 0.60, \sigma = \sqrt{\frac{pq}{n}} = \sqrt{\frac{0.24}{20}} = \sqrt{\frac{6}{500}} = 0.109545$
+
+$\mu_{\bar{X}} = 0.60(20)=12, \sigma_{\bar{X}} = \sqrt{\frac{npq}} = \sqrt{20(0.60)(0.40)} = 2.19089$
+
+We use the normal approximation of the binomial distribution, $Z_{\bar{X}} = \frac{\bar{X} - \mu}{\sigma / \sqrt{n}}$.
+
+(a) $P(\bar{X} = 10) = P(Z = \frac{10 - 12}{2.19089}) = P(Z = -0.912871) = 0.263$, therefore the expected number of samples with equal counts of nouns and verbs is $50(0.263)=18$
 
 \end{document}
