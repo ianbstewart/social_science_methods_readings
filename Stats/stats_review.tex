@@ -3,6 +3,7 @@
 \usepackage{graphicx}
 \usepackage{subcaption}
 \usepackage{amsmath}
+\usepackage{color}
 
 \title{Statistics review}
 \subtitle{via Spiegel, Schiller, Srinivasan (2009) \emph{Schaum's Probability and Statistics (third edition)}}
@@ -388,10 +389,10 @@ The F distribution is used in the analysis of variance when a sample's standard 
 \item We often need to estimate the distribution of sample statistics in order to draw conclusions about a population. For instance, computing the variance of the sample mean tells us how spread out the estimation of the population mean is.
 \item \textbf{Estimating normal distribution parameters}
 \item For sample mean $\bar{X}=\frac{\sum_{i=1}^{n}X_{i}}{n}$, the expected value is $\mu_{\bar{X}}=\mu$. The variance of the sampling distribution is $\sigma_{\bar{X}} = \frac{\sigma^{2}}{n}$ with replacement, and $\sigma_{\bar{X}} = \frac{\sigma^{2}}{n}\frac{N-n}{N-1}$. 
-\item For sample variance $S^{2} = \frac{\sum_{i=1}^{n}(X_{i}-\bar{X})^{2}}{n}$, the expected value with replacement is $\mu_{S^{2}} = \frac{n-1}{n}\sigma^{2}$, which indicates that $S^{2}$ is a biased estimator because its expected value is not equal to the population parameter (as compared to $\hat{S}^{2} = \frac{\sum_{i=1}^{n}(X_{i}-\bar{X})^{2}}{n-1}$). The expected value without replacement is $\mu_{S^{2}} = (\frac{N}{N-1})(\frac{n-1}{n})\sigma^{2}$.
+\item For sample variance $S^{2} = \frac{\sum_{i=1}^{n}(X_{i}-\bar{X})^{2}}{n}$, the expected value with replacement is $\mu_{S^{2}} = \frac{n-1}{n}\sigma^{2}$, which indicates that $S^{2}$ is a biased estimator because its expected value is not equal to the population parameter (as compared to $\hat{S}^{2} = \frac{\sum_{i=1}^{n}(X_{i}-\bar{X})^{2}}{n-1}$). The expected value without replacement is $\mu_{S^{2}} = (\frac{N}{N-1})(\frac{n-1}{n})\sigma^{2}$. The variance of the variance is $\sigma_{S^{2}} = \frac{\sigma}{\sqrt{2n}}$.
 \item We already know that the standardized variable $Z=\frac{\bar{X}-\mu}{\sigma / \sqrt{n}}$ is normally distributed. But if we do not know population variance $\sigma^{2}$, we can estimate using statistic $T = \frac{\bar{X} - \mu}{\hat{S} / \sqrt{n}} = \frac{\bar{X} - \mu}{S / \sqrt{n-1}}$, which follows student's t distribution with $n-1$ degrees of freedom.
-\item For two independent populations, we can estimate the expected value and variance of the difference between population samples' sample means $\bar{X_{1}}, \bar{X_{2}}$ are $\mu_{\bar{X}_{1} - \bar{X}_{2}} = \mu_{1} - \mu_{2}$ and $\sigma_{\bar{X}_{1} - \bar{X}_{2}} = \sqrt{\sigma^{2}_{\bar{X}_{1}} + \sigma^{2}_{\bar{X}_{2}}} = \sqrt{\frac{\sigma_{1}^{2}}{n_{1}} + \frac{\sigma_{2}^{2}}{n_{2}}}$. The expected value and variance of the difference between population samples' sample standard deviations $S_{1}, S_{2}$ are $\mu_{S_{1} - S_{2}} = \mu_{S_{1}} - \mu_{S_{2}}$ and $\sigma_{S_{1} - S_{2}} = \sqrt{\sigma^{2}_{S_{1}} - \sigma^{2}_{S_{2}}}$. The standardized variable is normally distributed if $n_{1}$ and $n_{2}$ are over 30 and can be computed as $Z=\frac{(\bar{X}_{1} - \bar{X}_{2}) - (\mu_{1} - \mu_{2})}{\sqrt{\sigma_{1}^{2} / n_{1} + \sigma_{2}^{2} / n^{2}}}$.
-\item For two independent populations, we can estimate the ratio of the population variances $\frac{S_{1}^{2}}{S_{2}^{2}}$ with test statistic $F=\frac{n_{1}S_{1}^{2}/(n_{1}-1)\sigma_{1}^{2}}{n_{2}S_{2}^{2}/(n_{2}-1)\sigma_{2}^{2}} = \frac{\hat{S}_{1}^{2} / \sigma_{1}^{2}}{\hat{S}_{2}^{2} / \sigma_{2} / \sigma_{2}^{2}} \sim F_{n_{1}-1, n_{2}-1}$.
+\item For two independent populations, we can estimate the expected value and variance of the difference between population samples' sample means $\bar{X_{1}}, \bar{X_{2}}$ are $\mu_{\bar{X}_{1} - \bar{X}_{2}} = \mu_{1} - \mu_{2}$ and $\sigma_{\bar{X}_{1} - \bar{X}_{2}} = \sqrt{\sigma^{2}_{\bar{X}_{1}} + \sigma^{2}_{\bar{X}_{2}}} = \sqrt{\frac{\sigma_{1}^{2}}{n_{1}} + \frac{\sigma_{2}^{2}}{n_{2}}}$. The expected value and variance of the difference between population samples' sample standard deviations $S_{1}, S_{2}$ are $\mu_{S_{1} - S_{2}} = \mu_{S_{1}} - \mu_{S_{2}}$ and $\sigma_{S_{1} - S_{2}} = \sqrt{\sigma^{2}_{S_{1}} - \sigma^{2}_{S_{2}}}$. The standardized variable is normally distributed if $n_{1}$ and $n_{2}$ are over 30 and can be computed as $Z=\frac{(\bar{X}_{1} - \bar{X}_{2}) - (\mu_{1} - \mu_{2})}{\sqrt{\sigma_{1}^{2} / n_{1} + \sigma_{2}^{2} / n_{2}}}$.
+\item For two independent populations, we can estimate the ratio of the population variances $\frac{S_{1}^{2}}{S_{2}^{2}}$ with test statistic $F=\frac{n_{1}S_{1}^{2}/(n_{1}-1)\sigma_{1}^{2}}{n_{2}S_{2}^{2}/(n_{2}-1)\sigma_{2}^{2}} = \frac{\hat{S}_{1}^{2} / \sigma_{1}^{2}}{\hat{S}_{2}^{2} / \sigma_{2}^{2}} \sim F_{n_{1}-1, n_{2}-1}$.
 \item \textbf{Estimating binomial distribution parameters}
 \item For sample proportion of success $P$, we can estimate the expected value and variance as $\mu_{P} = p$ and $\sigma_{P} = \sqrt{\frac{pq}{n}} = \sqrt{\frac{p(1-p)}{n}}$, derived from population parameter $p$ and identities $\mu=p, \sigma=\sqrt{p(1-p)}$.
 \item For two independent populations, we can estimate the expected value and variance of the difference between populations' proportions of success $P_{1}, P_{2}$ as $\mu_{P_{1}-P_{2}} = \mu_{P_{1}} + \mu_{P_{2}} = p_{1} - p_{2}$ and $\sigma_{P_{1}-P_{2}} = \sqrt{\sigma^{2}_{P_{1}} + \sigma^{2}_{P_{2}}} = \sqrt{ \frac{p_{1}q_{1}}{n_{1}} + \frac{p_{2}q_{2}}{n_{2}} }$.
@@ -407,7 +408,7 @@ A population $X$ has mean weekly income of \$800 with standard deviation \$60. W
 
 (c) $P(\bar{X} \geq 820) = P(Z \geq \frac{820 - 800}{60 / \sqrt{16}}) = P(Z \geq \frac{4}{3}) = 1 - P(Z \leq \frac{4}{3}) = 0.0912$
 
-\textb{5.60}
+\textbf{5.60}
 
 A corpus contains 80 tokens, 60\% nouns and 40\% verbs. Out of 50 samples of 20 tokens (with replacement), how many samples will have (a) equal numbers of nouns and verbs? (c) 8 nouns and 12 verbs?
 
@@ -415,10 +416,176 @@ Let's call noun probability $p=0.60$ and verb probability $q=0.40$.
 
 %$\mu_{P} = 0.60, \sigma = \sqrt{\frac{pq}{n}} = \sqrt{\frac{0.24}{20}} = \sqrt{\frac{6}{500}} = 0.109545$
 
-$\mu_{\bar{X}} = 0.60(20)=12, \sigma_{\bar{X}} = \sqrt{\frac{npq}} = \sqrt{20(0.60)(0.40)} = 2.19089$
+$\mu_{\bar{X}} = 0.60(20)=12, \sigma_{\bar{X}} = \sqrt{npq} = \sqrt{20(0.60)(0.40)} = 2.19089$
 
 We use the normal approximation of the binomial distribution, $Z_{\bar{X}} = \frac{\bar{X} - \mu}{\sigma / \sqrt{n}}$.
 
-(a) $P(\bar{X} = 10) = P(Z = \frac{10 - 12}{2.19089}) = P(Z = -0.912871) = 0.263$, therefore the expected number of samples with equal counts of nouns and verbs is $50(0.263)=18$
+(a) $P(\bar{X} = 10) = P(Z = \frac{10 - 12}{2.19089}) = P(Z = -0.912871) = 0.263$, therefore the expected number of samples with equal counts of nouns and verbs is $50(0.263)=18$.
+
+(c) $P(\bar{X} = 8) = P(Z = \frac{8 -12}{2.19089}) = P(Z = -1.8257) = 0.075$, therefore the expected number of samples with 8 nouns and 12 verbs is $50(0.075) = 4$.
+
+{\color{red} These are the wrong answers, they should be (a) 6 and (c) 2. Why??}
+
+\textbf{5.68}
+
+A large corpus contains 65\% punctuation. Find the probability that two random samples, each comprising 200 tokens, have a greater than 10\% difference in proportions of punctuation tokens.
+
+$n=200, \mu_{P_{1} - P_{2}} = 0.65 - 0.65 = 0.0, \sigma_{P_{1} - P_{2}} = \sqrt{\frac{0.65(0.35)}{200} + \frac{0.65(0.35)}{200}} = 0.047697$.
+
+$P(\mu_{P_{1}} - \mu_{P_{2}} \geq 10\%) = P(Z \geq \frac{0.10 - 0.}{0.047697}) = P(Z \geq 2.09657) = 0.01801$.
+
+{\color{red} Answer should be 0.0410.}
+
+\textbf{5.75}
+
+The fundamental frequency of the same vowel extracted from a population of (helium-addicted) speakers follows a normal distribution of 2000 Hz and a standard deviation of 60 Hz. 
+If 10 speakers are selected at random, what is the probability that the sample standard deviation will (a) not exceed 50 Hz, (b) lie between 50 and 70 Hz?
+
+$n=10, \mu_{S} = \sigma = 60, \sigma_{S} = \frac{\sigma}{\sqrt{2n}} = \frac{60}{\sqrt{2(10)}} = 13.4164$.
+
+(a) $P(S \leq 50) = P(Z \leq \frac{50 - 60}{13.4164}) = P(\frac{-10}{13.4164}) = 0.2280$.
+
+(b) $P(50 \leq S \leq 70) = P(\frac{50 - 60}{13.4164} \leq Z \leq \frac{70 - 60}{13.4164}) = P(-0.74536 \leq Z \leq 0.74536) = 0.5439$
+
+{\color{red} Answers should be (a) 0.36 (b) 0.49.}
+
+\textbf{5.80}
+
+Two large Twitter corpora, $T$ and $W$, contain tweets whose length is normally distributed. 
+The standard deviation of tweet length in $T$ is 40 characters, and the standard deviation of tweet length in $W$ is 50 characters. 
+We take a sample of 8 tweets from $T$ and 16 tweets from $W$. What is the probability that the variance of the sample from $T$ is more than (a) 2, (b) 1.2 times the variance from the sample from $W$?
+
+$\sigma_{T}=40, \sigma_{W}=50, n_{T}=8, n_{W}=16$
+
+We can estimate the probability of these variance ratios with the F statistic: 
+
+$$
+F = \frac{n_{T}S_{T}^{2}/((n_{T}-1)\sigma_{T}^{2})}{n_{W}S_{W}^{2}/((n_{W}-1)\sigma_{W}^{2})}
+F = \frac{8/((8-1)40^{2})}{16/((16-1)50^{2})}(\frac{S_{T}^{2}}{S_{W}^{2}}) = \frac{1/1400}{4/9375}(\frac{S_{T}^{2}}{S_{W}^{2}}) = \frac{375}{224}(\frac{S_{T}^{2}}{S_{W}^{2}})
+$$
+
+(a) $F=\frac{375}{224}(2)=3.3482 \sim F_{7,15}, P(F_{7,15} \geq 3.3482) = 0.02$
+
+(b) $F=\frac{375}{224}(1.2) = 2.00892 \sim F_{7,15}, P(F_{7,15} \geq 2.00892) = 0.12$
+
+\textbf{5.130}
+
+In a subcommunity on Twitter, the hashtag \#notallmen is normally distributed among the community members with mean frequency 72 and standard deviation 8. 
+(a) Find the minimum frequency of the top 20\% of members.
+(b) Find the probability that in a random sample of 100 students, the minimum frequency among the top 20\% will be less than 76. 
+
+(a) High-level: we want to find the frequency that splits the lower 80\% of members from the upper 20\%, which is the same thing as finding the point in the normal distribution that separates the lower 80\% of cumulative probability from the remaining 20\%. 
+
+$P(Z' \geq Z) = 80\%$, where $Z' = \frac{X - \mu}{\sigma} = \frac{X - 72}{8}$. Using the inverse CDF for the normal distribution where $P(Z' \geq Z) = 80\%$, we find $Z' = 0.842$, so we can solve for $X$ as follows: $X = Z'(\sigma) + \mu = (0.842)(8) + 72=78.736 \approx 79$.
+
+(b) Slightly different problem! 
+We want to find $P(M_{20} \leq 76)$ where $M_{20}$ is the minimum frequency among the top 20\% of members. 
+If $\bar{X}$ is the sample mean, $M_{20} = \bar{X} + m$, where $m$ is the amount needed to reach $M_{20}$ from $\bar{X}$.
+We can standardize this as $P(\bar{X} + m \leq 76) = P(\frac{\bar{X} - \mu}{\sigma / \sqrt{n}} + m' \leq \frac{76 - \mu}{\sigma / \sqrt{n}}) = P(Z + m' \leq \frac{4}{8 / 10})$, therefore $P(Z \leq 5 - m')$.
+Since $m'$ is the difference between the 50\% and 80\% mark, we know that $m' = 0.842$, therefore $P(Z \leq 5 - 0.842) = P(Z \leq 4.158) = (1 - 0.99998) = 0.00002$.
+
+{\color{red} Answer should be 0.0090...why?}
+
+\section{Estimation}
+
+\begin{itemize}
+\item A statistic is an \emph{unbiased} estimator if the expected value of the statistic is equal to the parameter (e.g., $E(\bar{X}) = \mu$. 
+\item A statistic is more \emph{efficient} if it has a smaller variance (e.g., $V(\mu) < V(med)$).
+\item Establishing \emph{confidence intervals} for a statistic $S$ lets us know how likely it is for us to find the actual population parameters within those intervals. 
+For instance, for the statistic $\bar{X}$, we can be 68.27\% confident of finding $\mu$ in the interval $\bar{X} - \sigma_{\bar{X}} < \bar{X} < \bar{X} + \sigma_{\bar{X}}$. 
+95\% confident = $S \pm 1.96\sigma_{S}$, 99\% confident = $S \pm 2.58\sigma_{S}$. 
+\item $z_{c}$ is equal to the Z-value corresponding to the desired confidence percentile $c$
+\item For a normal distribution, the confidence interval for the population mean is $\bar{X} \pm z_{c}\frac{\sigma}{\sqrt{n}}$, assuming a large sample or sampling with replacement.
+For sampling without replacement, for population size $N$ the confidence interval is $\bar{X} \pm z_{c}\frac{\sigma}{\sqrt{n}}\sqrt{\frac{N - n}{N - 1}}$.
+\item For a normal distribution with a small sample size ($n < 30$), we have to use a t-distribution approximation: 
+$-t_{c} < \frac{(\bar{X}-\mu)\sqrt{n}}{\hat{S}} < t_{c}, \bar{X} \pm t_{c}\frac{\hat{S}}{\sqrt{n}}$. 
+\item To approximate the proportion $p$ of a binomial distribution, we use $P \pm z_{c}\sqrt{\frac{p(1-p)}{n}}$ for sampling with replacement, and $P \pm z_{c}\sqrt{\frac{pq}{n}}\frac{N-n}{N-1}$ for sampling without replacement.
+\item To find the confidence interval on the sum of two independent sample statistics $S_{1}$ and $S_{2}$, just use the sum of their variances: $S_{1} + S_{2} \pm z_{c}\sqrt{\sigma_{S_{1}^{2}} + \sigma_{S_{2}}^{2}}$. 
+For example, the confidence interval on the sum of two sample means is $\bar{X}_{1} + \bar{X}_{2} \pm z_{c}\sqrt{\frac{\sigma_{1}^{2}}{n_{1}} + \frac{\sigma_{2}^{2}}{n_{2}}}$.
+\item To compute the confidence interval for standard deviation, we use the fact that $\frac{(n-1)\hat{S}^{2}}{\sigma^{2}}$ follows a chi-squared distribution with $n-1$ degrees of freedom.
+Specifically, using confidence level $c$ and splitting it between the two tails of the chi-squared distribution (i.e. using $\chi_{c/2}$ and $\chi_{1-c/2}$), we have $\chi_{c/2}^{2} \leq \frac{(n-1)\hat{S}^{2}}{\sigma^{2}} \leq \chi_{1-c/2}^{2}, \frac{\hat{S}\sqrt{n-1}}{\chi_{1-c/2}} \leq \sigma \leq \frac{\hat{S}\sqrt{n-1}}{\chi_{c/2}}$. 
+\item To compute the confidence interval on the ratio of variances. we use the fact that $\frac{\hat{S}_{1}^{2} / \sigma_{1}^{2}}{\hat{S}_{2}^{2} / \sigma_{2}^{2}} \sim F_{n_{1}-1, n_{2}-1}$.
+Specifically, using confidence level $c$ split between the two tails of the F distribution, we have 
+$F_{c/2} \leq \frac{\hat{S}_{1}^{2} / \sigma_{1}^{2}}{\hat{S}_{2}^{2} / \sigma_{2}^{2}} \leq F_{1-c/2}$, or $\frac{1}{F_{1-c/2}}\frac{\hat{S}_{1}^{2}}{\hat{S}_{2}^{2}} \leq \frac{\sigma_{1}^{2}}{\sigma_{2}^{2}} \leq \frac{1}{F_{c/2}}\frac{\hat{S}_{1}^{2}}{\hat{S}_{2}^{2}}$.
+\item To extract a point estimate of a population parameter rather than confidence-interval estimate, we often use the \emph{maximum likelihood estimate}. 
+If a population has a parameter $\theta$ to be estimated by some statistic, the probability of observing datum $x$ is computed with the density function $f(x, \theta)$. 
+The likelihood of observing $n$ independent data $\{x_{1} ... x_{n}\}$ is $L=\prod_{1 \leq i \leq n} f(x_{i}, \theta)$, or in log-likelihood is $log(L) = \sum_{1 \leq i \leq n} log(f(x_{i}, \theta)$.
+We solve for $\theta$ by taking the derivative of the likelihood, setting to 0, and solving for $\theta$, i.e. $\sum_{1 \leq i \leq n} \frac{1}{f(x_{i}, \theta)}\frac{\delta f(x_{i}\theta)}{\delta \theta} = 0$.
+\end{itemize}
+
+\paragraph{Sample problems} ~\\
+
+\textbf{6.31}
+
+A population of English speakers uses the word ``fetch'' with a (sample) mean annual frequency of 1200 and a standard deviation of 100. 
+
+(a) Estimate the mean and standard deviation of the population assuming the samples are taken with size (i) 30, (ii) 50, and (iii) 100.
+(b) What is the relationship between sample standard deviations and estimates of population standard deviations for different sample sizes?
+
+(a) We estimate the mean for all sample sizes as $\bar{X} = \frac{\sum_{1\leq i \leq n} X_{i}}{n}=\frac{1200(n)}{n} = 1200$.
+We estimate the standard deviation $\hat{s} = \sqrt{\frac{n}{n-1}}s$, which is (i) $\sqrt{\frac{30}{29}}100=101.71$, (ii) $\sqrt{\frac{50}{49}}100 = 101.02$, (iii) $\sqrt{\frac{100}{99}}100 = 100.50$.
+
+(b) We can conclude that the estimates of population standard deviation become more accurate with larger sample sizes. 
+
+\textbf{6.35}
+
+If the standard deviation of a population of humans' lifetimes is estimated as 100 years, how large must the sample be to have (a) 95\%, (c) 99\% confidence that the error in the estimated mean lifetime will not exceed 20 years?
+
+We know that the estimation error for sample mean is $z_{c}\frac{\sigma}{\sqrt{n}} \leq 20$, so we need to substitute the appropriate $z_{c}$ values given the confidence levels and solve for $n \geq (z_{c}\frac{\sigma}{20})^{2}$. 
+
+(a) $z_{0.95} = 1.96, n \geq (1.96\frac{100}{20})^{2} = 96.04$, therefore $n=97$.
+
+(c) $z_{0.99} = 2.58, n \geq (2.58\frac{100}{20})^{2} = 166.41$, therefore $n=167$.
+
+\textbf{6.39}
+
+Five measurements of an individual's pronunciation of the phoneme /a/ were recorded as 0.28, 0.30, 0.27, 0.33, 0.31 seconds in duration. 
+Find (a) 95\%, (b) 99\% confidence limits for the actual mean reaction time.
+
+This counts as a small sample ($n=5$), so we need to use the approximation $\bar{X} \pm t_{c}\frac{\hat{S}}{\sqrt{n}}$.
+$\bar{X} = 0.298, \hat{S} = 0.21354, \frac{\hat{S}}{\sqrt{n}} = \frac{0.21354}{\sqrt{5}} = 0.009550$.
+
+(a) 95\% split over two tails yields $t_{0.975}=2.78, CI = 0.298 \pm 2.78(0.00955) = 2.98 \pm 0.027$.
+
+(c) 99\% split over two tails yields $t_{0.995} = 4.60, CI = 2.98 \pm 4.60(0.00955) = 2.98 \pm 0.044$.
+
+\textbf{6.40}
+
+A Basque corpus contains absolutive and ergative nouns in an unknown proportion. 
+A random sample of 60 verbs selected with replacement from the corpus showed that 70\% of nouns were absolutive. 
+Find the (a) 95\%, (c) 99.73\% confidence limits for the true proportion of absolutive nouns.
+
+$P = 0.70, CI = P \pm z_{c} \sqrt{\frac{p(1-p)}{n}} = 0.70 \pm z_{c} \sqrt{\frac{0.70(0.30)}{60}} = 0.70 \pm z_{c}(0.05916)$.
+
+(a) $z_{0.95} = 1.96, CI = 0.70 \pm 1.96(0.05916) = 0.70 \pm 0.1160$.
+
+(c) $z_{0.99} = 2.58, CI = 0.70 \pm 2.58(0.05916) = 0.70 \pm 0.1526$.
+
+\textbf{6.44}
+
+A sample of 200 verbs from a corpus showed that 15 were defective, while a sample of 100 verbs from another corpus showed that 12 were defective. 
+Find (b) 99\%, (c) 99.73\% confidence limits for the difference in proportions of defective verbs from the two corpora.
+
+$P_{1}=\frac{15}{200} = 0.075, P_{2} = \frac{12}{100}=0.12, CI = P_{1} - P_{2} \pm z_{c} \sqrt{\frac{P_{1}(1-P_{1})}{n_{1}} + \frac{P_{2}(1-P_{2})}{n_{2}} } = P_{1} - P_{2} \pm z_{c}(0.03746) $
+
+(b) $z_{0.99} = 2.58, CI = -0.045 \pm 2.58(0.03746) = -0.45 \pm 0.09665$.
+
+(c) $z_{0.9973} = 3.00, CI = -0.45 \pm 3.00(0.03746) = -0.45 \pm 0.1124$.
+
+\textbf{6.48}
+
+The standard deviation of the frequency of 10 verbs in a corpus is 120. 
+Find (a) 95\%, (b) 99\% confidence limits for the standard deviation of all verbs in the corpus.
+
+%$CI = [\frac{\hat{S}\sqrt{n-1}}{\chi_{1-c/2}}, \frac{\hat{S}\sqrt{n-1}}{\chi_{c/2}}]$
+$CI = S \pm z_{c} \frac{\sigma}{\sqrt{2n}} = z_{c} \frac{120}{\sqrt{20}} = z_{c}(26.83)$.
+
+(a) 
+%$\chi_{0.975, 9} = 19.0, \chi_{0.025, 9} = 2.70, CI = [\frac{120\sqrt{9}}{19.0}, \frac{120\sqrt{9}}{2.70}] = [18.95, 133.3]$
+$z_{0.95} = 1.96, CI = [120 - 1.96(26.83), 120 + 1.96(26.83)] = [67.41, 172.6]$.
+
+(b) $z_{0.99} = 2.58, CI = [120 - 2.58(26.83), 120 + 2.58(26.83)] = [50.77, 189.2]$.
+
+{\color{red} (a) [87.0, 230.9], (b) [78.1, 288.5]}
 
 \end{document}
